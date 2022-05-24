@@ -28,4 +28,12 @@ class Course(models.Model):
         return self.title
 
 class Module(models.Model):
-    course = models.ForeignKey(Course, )
+    course = models.ForeignKey(Course, related_name='modules', on_delete=models.CASCADE)
+    title = models.CharField(max_length =200)
+    description = models.TextField(blank = True)
+
+
+    def __str__(self):
+        return self.title
+
+
