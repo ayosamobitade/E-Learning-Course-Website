@@ -2,6 +2,8 @@ from django.db import models
 
 # Create your models here.
 from django.contrib.auth.models import User
+from django.contrib.contenttypes.models import ContentType
+from django.contrib.contenttypes.fields import GenericForeignKey
 
 class Subject(models.Model):
     title = models.CharField(max_length = 200)
@@ -37,3 +39,6 @@ class Module(models.Model):
         return self.title
 
 
+class Content(models.Model):
+    module = models.ForeignKey(module, related_name='contents', on_delete=models.CASCADE)
+    content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE)
