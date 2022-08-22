@@ -51,4 +51,25 @@ class ItemBase(models.Model):
     title = models.CharField(max_lenght = 250)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now = True)
-    
+
+    class Meta:
+        abstract = True
+
+    def __str__(self):
+        return self.title
+
+
+class Text(ItemBAse):
+    content = models.TextField()
+
+
+class File(ItemBase):
+    file = models.FileField(upload_to = 'files')
+
+class Image(ItemBase):
+    file = models.FileField(upload_to='images')
+
+
+class video(ItemBase):
+    url = models.URLField()
+
