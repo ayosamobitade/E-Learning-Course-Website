@@ -59,7 +59,7 @@ class ItemBase(models.Model):
         return self.title
 
 
-class Text(ItemBAse):
+class Text(ItemBase):
     content = models.TextField()
 
 
