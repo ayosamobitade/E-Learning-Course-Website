@@ -40,6 +40,9 @@ class Module(models.Model):
 
     def __str__(self):
         return f'{self.order}. {self.title}'
+    
+    class Meta:
+        ordering = ['order']
 
 
 class Content(models.Model):
@@ -47,7 +50,10 @@ class Content(models.Model):
     content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE, limit_choices_to={'model__in':('text', 'video', 'image', 'file')})
     object_id = models.PositiveIntegerField()
     item = GenericForeignKey('content_type', 'object_id')
+    order = OrderField(blank=True, for_fields = ['module'])
 
+    class Meta:
+        ordering = ['order']
 
 class ItemBase(models.Model):
     owner = models.ForeignKey(User, related_name='%(class)s_related', on_delete=models.CASCADE)
