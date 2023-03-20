@@ -7,13 +7,13 @@ from django.urls import reverse_lazy
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 
-#class ManageCourseListView(ListView):
- #   model = Course
- #   template_name = 'courses/manage/course/list.html'
+class ManageCourseListView(ListView):
+    model = Course
+    template_name = 'courses/manage/course/list.html'
 
-#    def get_queryset(self):
- #       qs = super().get_queryset()
- #       return qs.filter(owner=self.request.user)
+    def get_queryset(self):
+        qs = super().get_queryset()
+        return qs.filter(owner=self.request.user)
 
 
 class OwnerMixin(object):
