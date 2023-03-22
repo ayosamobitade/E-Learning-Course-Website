@@ -55,6 +55,8 @@ class CourseDeleteView(OwnerCourseMixin, DeleteView):
     permission_required = 'courses.delete_course'
 
 
+
+
 class CourseModuleUpdateView(TemplateResponseMixin, View):
     template_name = 'courses/manage/module/formset.html'
     course = None
