@@ -7,6 +7,10 @@ from django.urls import reverse_lazy
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 
+from django.shortcuts import redirect, get_object_or_404
+from django.views.generic.base import TemplateResponseMixin, View
+from .forms import ModuleFormSet
+
 class ManageCourseListView(ListView):
     model = Course
     template_name = 'courses/manage/course/list.html'
