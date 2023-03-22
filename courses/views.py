@@ -59,6 +59,10 @@ class CourseModuleUpdateView(TemplateResponseMixin, View):
     template_name = 'courses/manage/module/formset.html'
     course = None
 
+    def get_formset(self, data = None):
+        return ModuleFormSet(instance=self.course,
+                             data = data)       
+
     def dispatch(self, request, pk):
         self.course = get_object_or_404(Course, 
                                         id = pk,
