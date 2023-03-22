@@ -69,7 +69,7 @@ class CourseModuleUpdateView(TemplateResponseMixin, View):
                                         owner= request.user)
         return super().dispatch(request, pk)
     
-    def get(self, requet, *arg, **kwargs):
+    def get(self, request, *args, **kwargs):
         formset = self.get_formset()
         return self.render_to_response({'course': self.course,
                                         'formset': formset})
