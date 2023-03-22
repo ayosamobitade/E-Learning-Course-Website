@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+
 {% block title %}My courses {% endblock %}
 
 {% block content %}
@@ -13,9 +14,11 @@
         </p>
     </div>
     {% empty %}
+    <p>You haven't created any courses yes. </p>
+    {% endfor %}  
     <p>
-        <a href="{% url "course_created" %}" class="button">Create new course</a>
-    {% endfor %}    
+    <a href="{% url "course_created" %}" class="button">Create new course</a>
+     
     </p>
 </div>
 
