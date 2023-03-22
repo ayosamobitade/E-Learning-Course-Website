@@ -1,4 +1,4 @@
-{% extends "base.html %"}
+{% extends "base.html" %}
 
 {% block title %}
 Edit "{{ course.title }}"
@@ -6,12 +6,12 @@ Edit "{{ course.title }}"
 
 {% block content %}
 <h1>Edit "{{ course.title }}</h1>
-<div class="modules">
-    <h2> Course mocules</h2>
+<div class="module">
+    <h2> Course modules</h2>
     <form method="post">
         {{ formset }}
         {{ formset.management_form }}
-        {% csrf_token }
+        {% csrf_token %}
         <input type="submit" value="Save modules">
     </form>
 </div>
