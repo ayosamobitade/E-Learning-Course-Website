@@ -11,6 +11,13 @@ from django.shortcuts import redirect, get_object_or_404
 from django.views.generic.base import TemplateResponseMixin, View
 from .forms import ModuleFormSet
 
+
+# libraries to add content to the course module
+from django.forms.models import modelform_factory
+from django.apps import apps
+from .models import Module, Content
+
+
 class ManageCourseListView(ListView):
     model = Course
     template_name = 'courses/manage/course/list.html'
@@ -83,3 +90,24 @@ class CourseModuleUpdateView(TemplateResponseMixin, View):
             return redirect('manage_course_list')
         return self.render_to_response({'course':self.course,
                                         'formset':formset})
+
+
+# to add content to the course module
+
+class ContentCreateUpdateView(TemplateResponseMixin, View):
+    module = None
+    model = None
+    obj = None
+    template_name = 'courses/manage/content/form.html'
+    
+
+    def get_model(self, model_name):
+        if model_name in ['text', 'video', 'image', 'file']:
+            return apps.get_model(app_label='courses', model_name=medel_name)
+        return None
+    def get_form(self, model, *args, **kwargs):
+        Form = modelform_factory(model, exclude=['owner',
+                                                 'order',
+                                                 'created',
+                                                 'updated'])
+        return Form(*args, **kwargs)
