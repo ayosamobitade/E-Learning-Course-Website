@@ -49,9 +49,13 @@ Module {{ module.order|add:1 }}: {{ module.title }}
         {% endfor %}
     </div>
     <h3>Add new content:</h3>
-    <ul class="content-types"
+    <ul class="content-types">
     <li><a href="{% url "module_content_create" module.id "text" %}">Text</a></li>
     <li><a href="{% url "module_content_create" module.id "image" %}">Image</a></li>
     <li><a href="{% url "module_content_create" module.id "video" %}">Video</a></li>
     <li><a href="{% url "module_content_create" module.id "file" %}">File</a></li>
+    </ul>
 </div>
+
+{% endwith %}
+{% endblock %}
