@@ -18,7 +18,7 @@ from django.apps import apps
 from .models import Module, Content
 
 # ll
-from braces.views import csrfExemption, JsonRequestResponseMixin
+from braces.views import CsrfExemptMixin, JsonRequestResponseMixin
 
 
 class ManageCourseListView(ListView):
@@ -171,5 +171,10 @@ class ModuleContentListView(TemplateResponseMixin, View):
         return self.render_to_response({'module':module})
     
 
-
+class ModuleOrderView(CsrfExemptMixin, JsonRequestResponseMixin, View):
+    def post(self, request):
+        for id, order in self.request_json.items():
+            Module.objects.filter(id=id,
+                                  course__owner=request.user).update(order=order)
+            return self.render_json_response({'saved':'OK'})
 
