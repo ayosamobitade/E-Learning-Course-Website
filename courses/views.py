@@ -17,6 +17,9 @@ from django.forms.models import modelform_factory
 from django.apps import apps
 from .models import Module, Content
 
+# ll
+from braces.views import csrfExemption, JsonRequestResponseMixin
+
 
 class ManageCourseListView(ListView):
     model = Course
@@ -170,4 +173,3 @@ class ModuleContentListView(TemplateResponseMixin, View):
 
 
 
-    
