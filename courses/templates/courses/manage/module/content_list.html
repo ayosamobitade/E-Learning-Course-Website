@@ -38,8 +38,8 @@ Module {{ module.order|add:1 }}: {{ module.title }}
         {% for content in module.contents.all %}
         <div data-id="{{ content.id }}">
             {% with item=content.item %}
-            <p> {{ item }}</p>
-            <a href="#">Edit</a>
+            <p> {{ item }}({{ item|model_name }}</p>
+            <a href="{% url 'module_content_update" module.id item|model_name item.id %}">Edit</a>
             <form action="{% url "module_content_delete" content.id %}" method="post">
                 <input type="submit" value="Delete">
                 {% csrf_token %}
