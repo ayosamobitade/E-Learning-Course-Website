@@ -31,7 +31,18 @@ Module {{ module.order|add:1 }}: {{ module.title }}
 <div class="module">
     <h2>Module {{ module.order|add:1 }}: {{ module.title }}</h2>
     <h3>Module contents:</h3>
+
     <div id="module-contents">
-        
+        {% for content in module.contents.all %}
+        <div data-id="{{ content.id }}">
+            {% with item=content.item %}
+            <p> {{ item }}</p>
+            <a href="#">Edit</a>
+            <form action="{% url "module_content_delete" content.id %}" method="post">
+                <input type="submit" value="Delete">
+                {R csrf_token %}
+            </form>
+        </div>
+
     </div>
 </div>
