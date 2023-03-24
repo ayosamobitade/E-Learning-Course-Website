@@ -145,8 +145,8 @@ class ContentCreateUpdateView(TemplateResponseMixin, View):
                 # new content
                 Content.objects.create(module = self.module,
                                        item = obj)
-                return redirect('module_content_list', self.module.id)
-            return self.render_to_response({'form':form,
+            return redirect('module_content_list', self.module.id)
+        return self.render_to_response({'form':form,
                                             'object':self.obj})
         
         
@@ -184,5 +184,4 @@ class ContentOrderView(CsrfExemptMixin, JsonRequestResponseMixin, View):
             Content.objects.filter(id=id,
                                    module__course__owner = request.user).update(order=order)
             return self.render_json_response({'saved':'OK'})
-        
         
