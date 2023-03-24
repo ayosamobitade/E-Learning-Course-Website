@@ -8,7 +8,7 @@ Module {{ module.order|add:1 }}: {{ module.title }}
 {% block content %}
 {% with course=module.course %}
 <h1>Course "{{ course.title }}</h1>
-<div class="content">
+<div class="contents">
     <h3>Modules</h3>
     <ul id="modules">
         {% for m in course.modules.all %}
@@ -16,7 +16,7 @@ Module {{ module.order|add:1 }}: {{ module.title }}
         class="selected"{% endif %}>
             <a  href="{% url "module_content_list" m.id %}">
                 <span>
-                    Module <span class="order">{{ m.ordera|add:1 }}</span>
+                    Module <span class="order">{{ m.order|add:1 }}</span>
                 </span>
                 <br>
             {{ m.title }}
