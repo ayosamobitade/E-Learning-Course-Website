@@ -64,9 +64,10 @@ Module {{ module.order|add:1 }}: {{ module.title }}
 
 {% block domready %}
 $('#modules').sortable({
-    modules_order = {};
-    $('#modules').children().each(function(){
-        // update the order field
+    stop: function(event, ui){
+        modules_order = {};
+        $('#modules').children().each(function(){
+            // update the order field
         $(this).find('.order').text(#(this).index() +);
         // associate the module's id with its order
         modules_order(this).data('id')] = $(this).index();
