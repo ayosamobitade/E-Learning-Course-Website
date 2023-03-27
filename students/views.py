@@ -6,6 +6,11 @@ from django.views.generic.edit import CreateView
 from django.contrib.auth.forms import  UserCreationForm
 from django.contrib.auth import authenticate, login
 
+# enrowling on courses
+from django.views.generic.edit import FormView
+from django.contrib.auth.mixins import LoginRequiredMixin
+from .forms import CourseEnrollForm
+
 
 class StudentRegistrationView(CreateView):
     template_name = 'students/student/registration.html'
@@ -19,3 +24,6 @@ class StudentRegistrationView(CreateView):
                             password = cd['password'])
         login(self.request, user)
         return result
+    
+    # enrolling on courses
+
