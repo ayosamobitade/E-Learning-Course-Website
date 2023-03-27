@@ -23,7 +23,8 @@ from braces.views import CsrfExemptMixin, JsonRequestResponseMixin
 # displaying the course for students
 from django.db.models import Count
 from .models import Subject
-
+# detail view library for displaying a single course overview
+from django.views.generic.detail import DetailView
 
 class ManageCourseListView(ListView):
     model = Course
@@ -203,4 +204,10 @@ class CourseListView(TemplateResponseMixin, View):
                                         'subject': subject,
                                         'courses':courses})
     
+# detail view for displaying a single course overview
+
+class CourseDetailView(DetailView):
+    model = Course
+    template_name = 'courses/course/detail.html'
+
     
