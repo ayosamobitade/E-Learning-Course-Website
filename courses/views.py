@@ -205,8 +205,14 @@ class CourseListView(TemplateResponseMixin, View):
                                         'courses':courses})
     
 # detail view for displaying a single course overview
+from students.forms import CourseEnrollForm
 
 class CourseDetailView(DetailView):
     model = Course
     template_name = 'courses/course/detail.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['enroll_form'] = CourseEnrollForm(initial = {'course':self.object})
+        return context
 
