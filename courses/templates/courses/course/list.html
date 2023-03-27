@@ -1,14 +1,14 @@
 {% extends "base.html" %}
 
 {% block title %}
-{% fi subject %}
+{% if subject %}
 {{ subject.title }} courses
 {% else %}
 All courses
 {% endif %}
 {% endblock %}
 
-{% endblock content %}
+{% block content %}
 <h1>
     {% if subject %}
     {{ subject.title }}courses
