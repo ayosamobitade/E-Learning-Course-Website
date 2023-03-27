@@ -17,13 +17,13 @@ All courses
     {% endif %}
 </h1>
 <div class="contents">
-    <h3> subjects</h3>
+    <h3> Subjects</h3>
     <ul id="modules">
-        <li>{% if not subject %} class="selected"{% endif %}>
+        <li {% if not subject %} class="selected"{% endif %}>
             <a href="{% url "course_list" %}">All</a>
         </li>
         {% for s in subjects %}
-        <li {% if subject==s %}class="selected"{% endif %}>
+        <li {% if subject == s %}class="selected"{% endif %}>
             <a href="{% url "course_list_subject" s.slug %}">
                 {{ s.title }}
                 <br><span>{{ s.total_courses }} courses</span>
@@ -49,6 +49,6 @@ All courses
         Instructor: {{ course.owner.get_full_name }}
     </p>
     {% endwith %}
-    {% endfor% }
+    {% endfor %}
 </div>
 {% endblock %}
