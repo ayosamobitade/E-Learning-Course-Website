@@ -46,7 +46,7 @@ class StudentEnrollingCourseView(LoginRequiredMixin, FormView):
     
 # accessing the course content 
 
-class StudentCourseview(LoginRequiredMixin, ListView):
+class StudentCourseListview(LoginRequiredMixin, ListView):
     model = Course
     template_name = 'students/course/list.html'
 
