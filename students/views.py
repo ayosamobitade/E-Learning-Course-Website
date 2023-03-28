@@ -11,6 +11,10 @@ from django.views.generic.edit import FormView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .forms import CourseEnrollForm
 
+# accessing the course contents
+from django.views.generic.list import ListView
+from courses.models import Course
+
 
 class StudentRegistrationView(CreateView):
     template_name = 'students/student/registration.html'
