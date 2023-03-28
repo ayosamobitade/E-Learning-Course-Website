@@ -72,6 +72,7 @@ class ItemBase(models.Model):
     def __str__(self):
         return self.title
     
+    # rendering different type of content
     def render(self):
         return render_to_string(
             f'courses/content/{self._meta.model_name}.html',
