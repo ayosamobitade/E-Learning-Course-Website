@@ -123,3 +123,7 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+#redirecting the studnets to a url
+from django.urls import reverse_lazy
+LOGIN_REDIRECTING_URL = reverse_lazy('student_course_list')
