@@ -32,7 +32,7 @@ class StudentRegistrationView(CreateView):
         return result
     
     # enrolling on courses
-class StudentEnrollingCourseView(LoginRequiredMixin, FormView):
+class StudentEnrollCourseView(LoginRequiredMixin, FormView):
     course = None
     form_class = CourseEnrollForm
 
