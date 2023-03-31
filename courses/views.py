@@ -130,7 +130,7 @@ class ContentCreateUpdateView(TemplateResponseMixin, View):
             self.obj = get_object_or_404(self.model, 
                                          id = id,
                                          owner = request.user)
-            return super().dispatch(request, module_id, model_name, id)
+        return super().dispatch(request, module_id, model_name, id)
         
     def get(self, request, module_id, model_name, id=None):
         form = self.get_form(self.model, instance = self.obj)
