@@ -5,5 +5,5 @@ app_name - 'courses'
 
 urlpatterns = [
     path('subjects/', views.SubjectListView.as_view(), name = 'subject_list'),
-    path('subject/<pk>/', views.SubjectDetailView.as_view(), name = 'subject_detail')
+    path('subject/<pk>/', views.SubjectDetailView.as_view(), name = 'subject_detail'),
 ]
