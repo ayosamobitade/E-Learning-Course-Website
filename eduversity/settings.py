@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'courses.apps.CoursesConfig',
     'students.apps.StudentsConfig',
-    'embed_video',
+    #'embed_video',
     'rest_framework',
 ]
 
