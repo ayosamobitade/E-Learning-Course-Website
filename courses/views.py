@@ -20,6 +20,7 @@ from .models import Module, Content
 # ll
 from braces.views import CsrfExemptMixin, JsonRequestResponseMixin
 
+
 # displaying the course for students
 from django.db.models import Count
 from .models import Subject
