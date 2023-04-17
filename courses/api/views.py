@@ -54,6 +54,7 @@ class CourseViewSet(viewsets.ReadOnlyModelViewSet):
         course.students.add(request.user)
         return Response({'enrolled':True})
     
+    # view that mimic the behavior of retrieve
     @action(detail = True,
             methods = ['get'],
             serializer_class = CourseWithContentsSerializer,
