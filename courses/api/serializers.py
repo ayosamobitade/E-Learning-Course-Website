@@ -16,7 +16,7 @@ class ModuleSerializer(serializers.ModelSerializer):
 
 
 class CourseSerializer(serializers.ModelSerializer):
-    moudules = ModuleSerializer(many=True, read_only= True)
+    modules = ModuleSerializer(many=True, read_only= True)
 
     class Meta:
         model = Course
