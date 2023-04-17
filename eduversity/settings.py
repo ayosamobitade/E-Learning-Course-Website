@@ -83,6 +83,9 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'eduversity.wsgi.application'
 
+#added setting (asgi)
+ASGI_APPLICATION = 'eduversity.routing.application'
+
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
