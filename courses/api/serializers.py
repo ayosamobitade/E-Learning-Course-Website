@@ -3,6 +3,12 @@ from ..models import Subject
 from ..models import Course, Module, Content
 
 
+class SubjectSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Subject
+        fields = ['id', 'title', 'slug']
+
+
 class ModuleSerializer(serializers.ModelSerializer):
     class Meta:
         model = Module
@@ -41,4 +47,4 @@ class CourseWithContentsSerializer(serializers.ModelSerializer):
         model = Course
         fields = ['id', 'subject', 'title', 'slug', 'overview', 'created', 'owner', 'modules']
 
-        
+
