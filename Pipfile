@@ -7,6 +7,7 @@ name = "pypi"
 django = "*"
 django-embed-video = "*"
 djangorestframework = "*"
+channels = "*"
 
 [dev-packages]
 
