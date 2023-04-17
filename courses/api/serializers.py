@@ -9,7 +9,7 @@ class ModuleSerializer(serializers.ModelSerializer):
 
 
 class CourseSerializer(serializers.ModelSerializer):
-    Module = ModuleSerializer(many=True, read_only= True)
+    moudules = ModuleSerializer(many=True, read_only= True)
 
     class Meta:
         model = Course
