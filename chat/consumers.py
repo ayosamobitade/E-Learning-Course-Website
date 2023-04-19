@@ -1,9 +1,9 @@
 import json
-from channels.generic.websocket import WebsocketConsumer
+from channels.generic.websocket import AsyncWebsocketConsumer
 from asgiref.sync import async_to_sync
 from django.utils import timezone
 
-class ChatConsumer(WebsocketConsumer):
+class ChatConsumer(AsyncWebsocketConsumer):
     def connect(self):
         self.user = self.scope['user']
         self.id = self.scope['url_route']['kwargs']['course_id']
