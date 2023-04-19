@@ -24,6 +24,10 @@ chatSocket.onmessage = function(e) {
 
     var $chat = $('#char');
     $chat.append('<div class="message">' + message + '</div>');
-    $chat.scrollTop
+    $chat.scrollTop(Chat[0] .scrollHeight);
+};
+
+chatSocket.enclose = function(e) {
+    console.error('Chat socket closed unexpectedly');
 }
 {% endblock %}
