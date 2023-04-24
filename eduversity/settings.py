@@ -166,3 +166,8 @@ CHANNEL_LAYERS = {
         },
     },
 }
+
+# cache settings
+CACHE_MIDDLEWARE_ALIAS = 'default'
+CACHE_MIDDLEWARE_SECONDS = 60 * 15 #15 minutes
+CACHE_MIDDLEWARE_PREFIX = 'eduversity'
