@@ -13,7 +13,7 @@ class ChatConsumer(AsyncWebsocketConsumer):
             self.room_group_name,
             self.channel_name
         )
-        # accept connections
+        # accept connection
         await self.accept()
 
     async def disconnect(self, close_code):
@@ -32,10 +32,10 @@ class ChatConsumer(AsyncWebsocketConsumer):
         await self.channel_layer.group_send(
             self.room_group_name,
             {
-            'type': 'chat_message',
-            'message': message,
-            'user': self.user.username,
-            'datetime': now.isoformat(),
+                'type': 'chat_message',
+                'message': message,
+                'user': self.user.username,
+                'datetime': now.isoformat(),
             }
         )
     
